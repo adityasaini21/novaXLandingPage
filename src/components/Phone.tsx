@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, useMemo } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useScroll, RoundedBox } from '@react-three/drei';
 import * as THREE from 'three';
@@ -11,7 +11,7 @@ const titaniumMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.2,
 });
 
-const screenMaterial = new THREE.MeshStandardMaterial({
+const screenMaterial = new THREE.MeshPhysicalMaterial({
   color: '#000000',
   metalness: 0.5,
   roughness: 0.1,
@@ -32,7 +32,7 @@ const flashMaterial = new THREE.MeshBasicMaterial({ color: "#ffffff" });
 export const Phone = () => {
   const group = useRef<THREE.Group>(null);
   const scroll = useScroll();
-  const tl = useRef<gsap.core.Timeline>();
+  const tl = useRef<gsap.core.Timeline>(undefined);
 
   // Optimization: Pre-calculate geometry parameters if needed, 
   // though RoundedBox is relatively efficient, stable refs help.

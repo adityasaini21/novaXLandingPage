@@ -1,4 +1,4 @@
-import React, { Suspense, memo, useState, useCallback } from 'react';
+import { Suspense, memo, useState, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { ScrollControls, Scroll, Environment, ContactShadows, Stars, Preload } from '@react-three/drei';
 import { Phone } from './components/Phone';
